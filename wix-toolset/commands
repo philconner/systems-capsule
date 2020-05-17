@@ -1,0 +1,3 @@
+heat dir "C:\Program Files\gs" -g1 -gg -generate components -platform x64 -sfrag -out "C:\some\path"
+
+

@@ -1,0 +1,19 @@
+$ErrorActionPreference = 'Stop'
+$toolsDir   = "$(Split-Path -parent $MyInvocation.MyCommand.Definition)"
+
+$fileEmbedded = ${fileEmbedded}
+if ($fileEmbedded) {{
+   $fileLocation = Join-Path $toolsDir '{fileName}'
+}} else {{
+    $fileLocation = '{fileName}'
+}}
+
+$packageArgs = @{{
+  packageName   = '{shortName}'
+  fileType      = '{fileType}'
+  silentArgs   = "{silentArgs}"
+  file         = $fileLocation
+  validExitCodes = @({validExitCodes})
+}}
+
+Install-ChocolateyInstallPackage @packageArgs

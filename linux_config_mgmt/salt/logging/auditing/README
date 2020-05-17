@@ -1,0 +1,8 @@
+This state will configure a linux server to send occurences of someone running a su or
+sudo command to graylog, as well as avc(auditd) logs if the server is in the RedHat os_family.
+
+Affected services:
+ - rsyslog
+
+Affected files:
+ - /etc/rsyslog.d/send_su-sudo_events.conf (send_su-sudo-avc_events.conf if RedHat)

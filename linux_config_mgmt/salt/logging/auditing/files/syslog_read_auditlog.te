@@ -1,0 +1,15 @@
+# This is the type-enforcement (TE) rule to allow syslog to read the audit log.
+# This file is not used in the state. It was used to create the policy package that is used in the state.
+
+module syslog_read_auditlog 1.0;
+
+require {
+	type syslogd_t;
+	type auditd_log_t;
+	class dir { getattr search };
+	class file { getattr ioctl open read };
+}
+
+#============= syslogd_t ==============
+allow syslogd_t auditd_log_t:dir { getattr search };
+allow syslogd_t auditd_log_t:file { getattr ioctl open read };

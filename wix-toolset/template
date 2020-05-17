@@ -1,0 +1,125 @@
+<?xml version='1.0' encoding='windows-1252'?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi" xmlns:util='http://schemas.microsoft.com/wix/UtilExtension'>
+	<Product 
+		Id='6515902A-F906-45BA-AEB9-4B2794D4E563'
+		Name="gnuplot (64-bit)"
+		Manufacturer="gnuplot development team"
+		UpgradeCode='A15B5D83-38CE-4762-B1B9-BCD827897300'
+		Language='1033'
+		Codepage='1252'
+		Version='5.2.6'>
+		<Package 
+			Id='40B216BB-E791-4F5F-A8CF-6F18F82BC282'
+			Keywords='Installer'
+			Description="Gnuplot 5.2.6a Installer"
+			Manufacturer= "Phil Conner"
+			InstallerVersion='200'
+			Languages='1033'
+			Compressed='yes'
+			SummaryCodepage='1252'/>
+		<Media
+			Id='1'
+			Cabinet='gnuplot.cab'
+			EmbedCab='yes'/>
+		<SetDirectory
+			Id='WINDOWSVOLUME'
+			Value='[WindowsVolume]'/>
+		<Directory
+			Id='TARGETDIR'
+			Name='SourceDir'>
+			<Directory
+				Id= 'WINDOWSVOLUME'>
+				<Directory
+					Id='ProgramFiles64Folder'
+					Name='ProgramFiles'>
+					<Directory
+						Id='INSTALLDIR'
+						Name='gnuplot'>
+						
+						<!-- START CUSTOM FEATURES -->
+						<!-- Example: Need to associate <filetype> files with <application> -->
+						<!-- END CUSTOM FEATURES -->
+						
+						<!-- START MAIN FILES -->
+						
+						<!-- END MAIN FILES -->
+					</Directory>
+				</Directory>
+				
+				<!-- START SHORTCUTS -->
+				<!-- Start Menu shortcuts -->
+				<Directory
+					Id='ProgramMenuFolder'
+					Name='Programs'>
+					<Component
+						Id='WGnuplotStartMenuShortcut'
+						Guid='CF695E18-3429-4BEF-AFFC-3B29DEA3D68B'>
+						<Shortcut
+							Id='WGnuplotStartMenuShortcut'
+							Name='gnuplot'
+							Target='[#fil4A2047D00951F842C2E943FFB833E285]'
+							WorkingDirectory='BinDir'/>
+						<RegistryValue
+							Root='HKMU'
+							Key="Software\gnuplot\Start Menu"
+							Name='WGnuplotShortcutInstalled'
+							Type='string'
+							Value=''
+							KeyPath='yes'/>
+					</Component>
+				</Directory>
+				
+				<!-- Desktop shortcut -->
+				<Directory
+					Id='DesktopFolder'
+					Name='Desktop'>
+					<Component
+						Id='DesktopShortcut'
+						Guid='2C514E75-66FB-4D14-ABE3-2701FA92CEEB'>
+						<Shortcut
+							Id='WGnuplotDesktopShortcut'
+							Name='gnuplot'
+							Target='[#fil4A2047D00951F842C2E943FFB833E285]'
+							WorkingDirectory='BinDir'/>
+						<RegistryValue
+							Root='HKMU'
+							Key="Software\gnuplot\Desktop"
+							Name='WGnuplotShortcutInstalled'
+							Type='string'
+							Value=''
+							KeyPath='yes'/>
+					</Component>
+				</Directory>
+				<!-- END SHORTCUTS-->
+			</Directory>
+		</Directory>
+		
+		<!-- START GENERATED COMPONENTGROUPS -->
+		<!-- END GENERATED COMPONENTGROUPS -->
+		
+		<!-- FEATURES -->
+		<Feature
+			Id='Minimal'
+			Level='1'>
+			<ComponentGroupRef Id='MainFiles'/>
+		</Feature>
+		<Feature
+			Id='StartMenuShortcuts'
+			Level='2'>
+			<ComponentGroupRef Id='StartMenuShortcuts'/>
+		</Feature>
+		<Feature
+			Id='DesktopShortcut'
+			Level='3'>
+			<ComponentRef Id='DesktopShortcut'/>
+		</Feature>
+		
+		<!-- ICONS -->
+		<Icon
+			Id='gnuplot_ico'
+			SourceFile='SourceDir\bin\wgnuplot.exe'/>
+		<Property
+			Id='ARPPRODUCTICON'
+			Value='gnuplot_ico'/>
+	</Product>
+</Wix>

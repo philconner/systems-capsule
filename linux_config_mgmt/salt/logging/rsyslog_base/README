@@ -1,0 +1,2 @@
+This state ensures that rsyslog is installed and that the imfile module is loaded. This state
+is required by all the other logging states.

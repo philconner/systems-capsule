@@ -1,0 +1,7 @@
+This state will configure a linux server to send all its syslog messages to graylog.
+
+Affected services:
+ - rsyslog
+
+Affected files:
+ - /etc/rsyslog.d/send_syslog.conf

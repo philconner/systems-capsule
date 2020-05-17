@@ -1,0 +1,8 @@
+This state will configure a linux webserver running apache/httpd or nginx (or both) to send
+its access log and error log messages to graylog.
+
+Affected services:
+ - rsyslog
+
+Affected files:
+ - /etc/rsyslog.d/send_webserver_logs.conf

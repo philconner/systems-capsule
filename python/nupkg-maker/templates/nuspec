@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
+  <metadata>
+    <id>{shortName}</id>
+    <version>{version}</version>
+    <title>{longName}</title>
+    <authors>{publisher}</authors>
+	<description>NuGet package for installing {longName} {version}</description>
+  </metadata>
+  <files>
+    <!-- this section controls what actually gets packaged into the Chocolatey package -->
+    <file src="tools\**" target="tools" />
+  </files>
+</package>

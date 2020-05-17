@@ -1,0 +1,56 @@
+---
+# tasks file for docker
+
+- name: Install packages needed to use apt module
+  package:
+    name: python-apt
+    state: present
+
+- name: Install required system packages
+  apt:
+    pkg:
+      - apt-transport-https
+      - ca-certificates
+      - curl
+      - software-properties-common
+      - gpg
+    state: latest
+    update_cache: yes
+
+- name: Add Docker GPG apt key
+  apt_key:
+    url: https://download.docker.com/linux/ubuntu/gpg
+    id: 9DC858229FC7DD38854AE2D88D81803C0EBFCD88
+    state: present
+
+- name: Add Docker repository
+  apt_repository:
+    repo: deb https://download.docker.com/linux/ubuntu bionic stable
+    state: present
+
+- name: Install docker-ce
+  apt:
+    name: docker-ce
+    state: latest
+    update_cache: yes
+
+# password is "t3mp0r@ry!" if created by this task
+- name: Add chosen users to docker group, creating them if necessary
+  user:
+    name: "{{ item }}"
+    password: "$6$IrFUWWmkJiZLJiTo$fAq5PgiRlCJ/t28USjxGTFJ.e5Jem60kid8x88m85nYuhFPQhWpZDyL0BUpyJy72UmV43DDxy3X5rRuEztHc21"
+    update_password: on_create
+    state: present
+    groups: docker
+    append: yes
+    shell: /bin/bash
+  with_items: "{{ usernames }}"
+  when: usernames is defined and usernames != '' and usernames != None
+
+- name: Install docker-compose
+  get_url:
+    url: "https://github.com/docker/compose/releases/download/1.25.4/docker-compose-{{ ansible_facts['ansible_system'] }}-{{ ansible_facts['ansible_architecture'] }}"
+    dest: /usr/local/bin/docker-compose
+    mode: 0755
+    user: root
+    group: root

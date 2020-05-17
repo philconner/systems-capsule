@@ -1,0 +1,5 @@
+config
+.secret
+__pycache__
+passwords.txt
+output-1

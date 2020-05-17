@@ -1,0 +1,30 @@
+{{
+  "type" : "nuget",
+  "shortName" : "{shortName}",
+  "longName" : "",
+  "version" : "",
+  "publisher" : "",
+  "iconLocation" : "\\\\redacted\\redacted",
+  "chocoInstallInfo" : {{
+    "note" : "This section is used by the numake program.",
+    "fileName" : "",
+    "fileEmbedded" : "",
+    "fileType" : "exe",
+    "silentArgs" : "", 
+    "validExitCodes" : "0"
+  }},
+  "chocoUninstallInfo" : {{
+    "note" : "This section is used by the numake program.",
+    "fileName" : "",
+    "fileEmbedded" : "",
+    "fileType" : "exe",
+    "silentArgs" : "", 
+    "validExitCodes" : "0"
+  }},
+  "nugetDetectionRules" : {{
+    "note" : "This section is for adding Nuget-based applications to SCCM.",
+    "files" : [],
+    "folders" : []
+  }},
+  "destination" : "redacted:\\redacted\\"
+}}
