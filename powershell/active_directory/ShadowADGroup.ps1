@@ -1,3 +1,5 @@
+<#
+.SYNOPSIS
     Maintains a Security Group that shadows an OU.
 
 .DESCRIPTION

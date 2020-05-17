@@ -1,3 +1,5 @@
+Two scripts that together configure all zabbix hosts running on windows.
+
 ### Config-ZabbixAgent
 This script is run through SCCM.
 

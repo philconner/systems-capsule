@@ -1,3 +1,5 @@
+Scripts that transition re-used student teams for the classes 410 and 411 in-between semesters.
+
 ### Files  
 - `main.py` - Main executable, calls functions from `transition_tasks.py`.  
 - `transition_tasks.py` - Functions to transition a team, calls functions from `ad_tasks.py` and `bash_tasks.py`.  

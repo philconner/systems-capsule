@@ -1,4 +1,9 @@
-﻿$Computer = Read-Host "`nComputer Name"
+﻿<#
+.SYNOPSIS
+    Get the collections that the given device is a member of.
+#>
+
+$Computer = Read-Host "`nComputer Name"
 
 function Get-CMCollectionOfDevice
 {
