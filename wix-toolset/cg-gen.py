@@ -6,7 +6,7 @@
 
 # parse source file
 import xml.etree.ElementTree as ET
-tree = ET.parse('filezilla_harvest000.wxs')
+tree = ET.parse('somefile.wxs')
 
 # Create/open output file for writing
 file_write = open("cg_out.txt", "a", newline="\n")
